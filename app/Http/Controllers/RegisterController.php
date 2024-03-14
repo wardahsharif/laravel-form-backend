@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Hash; 
+use Illuminate\Support\Facades\Hash;
 
 
 
 class RegisterController extends Controller
 {
-   Public function Store(Request $request) 
+   Public function store(Request $request) 
    {
     $input = $request ->all();
 
@@ -20,9 +20,11 @@ class RegisterController extends Controller
         'name' => $input['name'],
         'email' => $input['email'],
         'password' => Hash::make($input['password'])   
-    ])
+    ]);
     return response() ->json(['status' => true,
                                'message' => "Registration Successful"
-    ])
+]);
    }
 }
+
+
